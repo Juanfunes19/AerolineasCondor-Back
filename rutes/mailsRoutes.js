@@ -1,8 +1,8 @@
 const express = require(`express`)
 const router = express.Router()
-const {emailsControllers} = require (`../controllers/emailsControllers`)
+const enviomail = require (`../controllers/emailsControllers`)
 
-router.post(`/`, emailsControllers )
+router.post(`/`, enviomail.emailControllers )
 
 
 module.exports = router
