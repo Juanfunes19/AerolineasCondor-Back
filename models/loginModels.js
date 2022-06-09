@@ -14,16 +14,14 @@ module.exports.register = async(email, password) =>{
     }
 }
 
+
 module.exports.login = async(email, password) =>{
     const data = await request(`SELECT * FROM users WHERE email = "${email}"`)
     if(data.length === 0){
         return `Usuario no registrado`
     } else{
         if(bcrypt.compareSync(password ,data[0].password)){
-            return {
-                user: data[0],
-                logged: true
-            }
+            return data[0]
         }else{
             return `Usuario o contraseña incorrecto`
         }
