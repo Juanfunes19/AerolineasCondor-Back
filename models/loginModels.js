@@ -6,10 +6,11 @@ module.exports.register = async(email, password) =>{
     if(data.length > 0){
         return `El usuario ya existe`
     }else{
-        const user = await request(`INSERT INTO users (email, password, type) VALUES("${email}", "${password}", "Usuario")`)
+        const user = await request(`INSERT INTO users (email, password,estado, type) VALUES("${email}", "${password}", 1 , "Cliente)`)
         return{
             id: user.insertId,
-            email
+            email,
+            msg: "Usuario creado"
         }
     }
 }
