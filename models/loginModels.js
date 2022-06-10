@@ -1,5 +1,5 @@
 const {request} = require(`../db/request`)
-const bcrypt = require(`bcrypt`)
+// const bcrypt = require(`bcrypt`)
 
 module.exports.register = async(email, password) =>{
     const data = await request (`SELECT * FROM users WHERE email= "${email}"`)
@@ -20,10 +20,17 @@ module.exports.login = async(email, password) =>{
     if(data.length === 0){
         return `Usuario no registrado`
     } else{
-        if(bcrypt.compareSync(password ,data[0].password)){
+        if(password  === data[0].password){
             return data[0]
-        }else{
+        }else
+        {
             return `Usuario o contraseña incorrecto`
         }
     }
 }
+
+// if (data.length === 0) {
+//     return "Usuario no registrado"
+// } else {
+//     return "Usuario o contraseña incorrecta"
+// }

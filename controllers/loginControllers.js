@@ -1,10 +1,10 @@
 const {register, login} = require(`../models/loginModels`)
-const bcrypt = require (`bcrypt`)
+// const bcrypt = require (`bcrypt`)
 const {createToken} = require(`../utils/token`)
 
 module.exports.registerControlllers = async (req, res) =>{
     let {email, password} = req.body
-    password = bcrypt.hashSync(password, 10)
+    // password = bcrypt.hashSync(password, 10)
 
     try {
         const user = await register(email, password)
