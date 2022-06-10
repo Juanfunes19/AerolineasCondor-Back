@@ -6,7 +6,7 @@ module.exports.register = async(email, password) =>{
     if(data.length > 0){
         return `El usuario ya existe`
     }else{
-        const user = await request(`INSERT INTO users (email, password,estado, type) VALUES("${email}", "${password}", 1 , "Cliente)`)
+        const user = await request(`INSERT INTO users (email, password, estado, type) VALUES("${email}", "${password}", 1 , "Cliente")`)
         return{
             id: user.insertId,
             email,
@@ -21,7 +21,7 @@ module.exports.login = async(email, password) =>{
     if(data.length === 0){
         return `Usuario no registrado`
     } else{
-        if(password  === data[0].password){
+        if(password  == data[0].password){
             return data[0]
         }else
         {
@@ -29,9 +29,3 @@ module.exports.login = async(email, password) =>{
         }
     }
 }
-
-// if (data.length === 0) {
-//     return "Usuario no registrado"
-// } else {
-//     return "Usuario o contraseña incorrecta"
-// }
