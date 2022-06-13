@@ -30,7 +30,8 @@ module.exports.login = async(email, password) =>{
         if(bcrypt.compareSync(password, data[0].password)){
             return {
                 user: data[0],
-                logged: true
+                logged: true,
+                msg: "Acesso correcto"
             }
         }else{
             return {
