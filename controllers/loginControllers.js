@@ -9,6 +9,9 @@ module.exports.registerControlllers = async (req, res) =>{
     try {
         const user = await register(name, email, password)
 
+        if(user.existUser){
+            res.cookie("session", user)
+        }
         return res.status(201).send(user)
     } catch (error) {
         console.log(error)
@@ -21,9 +24,7 @@ module.exports.loginControllers = async(req,res) =>{
 
     try {
         const user = await login(email, password)
-        // if(user.existUser){
-        //     res.cookie("session", createToken(user))
-        // }
+
         return res.status(200).send(user)
     } catch (error) {
         console.log(error)
