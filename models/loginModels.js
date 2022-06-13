@@ -4,7 +4,10 @@ const bcrypt = require(`bcrypt`)
 module.exports.register = async(name, email, password) =>{
     const data = await request (`SELECT * FROM users WHERE email= "${email}"`)
     if(data.length > 0){
-        return `El usuario ya existe`
+        return {
+            msg:`El usuario ya existe`,
+            error: true
+    }
     }else{
         const user = await request(`INSERT INTO users (name, email, password, estado, type) VALUES("${name}","${email}", "${password}", 1 , "Cliente")`)
         return{
@@ -19,12 +22,21 @@ module.exports.register = async(name, email, password) =>{
 module.exports.login = async(email, password) =>{
     const data = await request(`SELECT * FROM users WHERE email = "${email}"`)
     if(data.length === 0){
-        return `Usuario no registrado`
+        return {
+            msg: `Usuario no registrado`,
+            error: true
+        }
     } else{
         if(bcrypt.compareSync(password, data[0].password)){
-            return data[0]
+            return {
+                user: data[0],
+                logged: true
+            }
         }else{
-            return "Usuario o contraseña equivocada"
+            return {
+                msg: "Usuario o contraseña equivocada",
+                error: true
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 const {register, login} = require(`../models/loginModels`)
 const bcrypt = require (`bcrypt`)
-// const {createToken} = require(`../utils/token`)
+const {createToken} = require(`../utils/token`)
 const {timeCookie} = require ("../utils/time")
 
 module.exports.registerControlllers = async (req, res) =>{
@@ -11,7 +11,7 @@ module.exports.registerControlllers = async (req, res) =>{
         const user = await register(name, email, password)
 
         if(user.existUser){
-            res.cookie("session", user, {maxAge: timeCookie(3)})
+            res.cookie("session", createToken(user), {maxAge: timeCookie(3)})
         }
         return res.status(201).send(user)
     } catch (error) {
