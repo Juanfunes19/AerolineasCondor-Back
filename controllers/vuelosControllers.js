@@ -48,6 +48,7 @@ module.exports.deleteVuelosControllers = async (req, res) =>{
         const vuelos = await deleteVuelos(id)
         return res.send(vuelos)
     } catch (error) {
+        console.log(error)
         return res.send(`Se produjo un error en la eliminacion del vuelo ${id}`)
     }
 }
