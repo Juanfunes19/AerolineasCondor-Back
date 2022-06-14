@@ -14,8 +14,8 @@ module.exports.idVuelos= async(id) =>{
     }
 }
 
-module.exports.createVuelos = async ({origen, destino, fecha, disponible, descripcion, precio}) =>{
-    const data = await request(`INSERT INTO vuelos (origen, destino, fecha, disponible, descripcion, precio) VALUES("${origen}", "${destino}", "${fecha}", "${disponible}", "${descripcion}", "${precio}")`)
+module.exports.createVuelos = async ({origen, destino, fecha,  descripcion, precio}) =>{
+    const data = await request(`INSERT INTO vuelos (origen, destino, fecha, descripcion, precio) VALUES("${origen}", "${destino}", "${fecha}", "${descripcion}", "${precio}")`)
     return {
         id: data.insertId,
         origen,
