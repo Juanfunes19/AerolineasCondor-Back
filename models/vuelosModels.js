@@ -41,8 +41,6 @@ module.exports.deleteVuelos = async(id) =>{
     const data = await request(`DELETE FROM vuelos WHERE id = ${id}`)
     return{
         id,
-        origen,
-        destino,
         deleted: data.affectedRows ? true : false,
         status: `Vuelo eliminada`
     }
