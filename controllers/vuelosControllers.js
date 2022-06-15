@@ -1,3 +1,4 @@
+const fs = require ('fs')
 const {allVuelos, idVuelos, deleteVuelos, createVuelos, updateVuelos} = require(`../models/vuelosModels`)
 
 module.exports.allVuelosControllers = async (req, res ) =>{
@@ -21,7 +22,11 @@ module.exports.idVuelosControllers = async (req, res) =>{
 
 
 module.exports.createVuelosControllers = async (req, res) =>{
-    const {origen, destino, fecha, descripcion, precio, imagen} = req.body
+    const {origen, destino, fecha, descripcion, precio} = req.body
+    const ext = requ.file.mimetype.split('/', 2)[1]
+    const imagen = `${origen}.${ext}`
+    fs.renameSync(req.file.path, `imagenes/${imagen}`)
+
     try {
         const vuelos = await createVuelos({origen, destino, fecha, descripcion, precio, imagen})
         return res.send(vuelos)
