@@ -25,8 +25,8 @@ module.exports.createVuelos = async ({origen, destino, fecha,  descripcion, prec
     }
 }
 
-module.exports.updateVuelos = async({id, origen, destino, fecha, disponible, descripcion, precio}) =>{
-    const data = await request(`UPDATE vuelos SET origen = "${origen}", destino="${destino}", fecha="${fecha}", disponible="${disponible}", descripcion="${descripcion}", precio="${precio}" WHERE id ="${id}"`)
+module.exports.updateVuelos = async({id, origen, destino, fecha, descripcion, precio}) =>{
+    const data = await request(`UPDATE vuelos SET origen = "${origen}", destino="${destino}", fecha="${fecha}", descripcion="${descripcion}", precio="${precio}" WHERE id ="${id}"`)
     return{
         id,
         origen,

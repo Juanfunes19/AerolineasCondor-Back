@@ -32,9 +32,9 @@ module.exports.createVuelosControllers = async (req, res) =>{
 
 module.exports.updateVuelosControllers = async (req, res) =>{
     const {id} = req.params
-    const {origen, destino, fecha, disponible, descripcion, precio} = req.body
+    const {origen, destino, fecha, descripcion, precio} = req.body
     try {
-        const vuelos = await updateVuelos({id, origen, destino, fecha, disponible, descripcion, precio})
+        const vuelos = await updateVuelos({id, origen, destino, fecha, descripcion, precio})
         return res.send(vuelos)
     } catch (error) {
         console.log(error)
