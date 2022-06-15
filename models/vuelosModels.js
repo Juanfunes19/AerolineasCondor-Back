@@ -20,6 +20,7 @@ module.exports.createVuelos = async ({origen, destino, fecha,  descripcion, prec
         id: data.insertId,
         origen,
         destino,
+        fecha,
         status: `Vuelo creado exitosamente` 
     }
 }
@@ -31,7 +32,6 @@ module.exports.updateVuelos = async({id, origen, destino, fecha, disponible, des
         origen,
         destino,
         fecha,
-        disponible,
         uptdate: data.affectedRows ? true : false
     }
 }
@@ -41,6 +41,8 @@ module.exports.deleteVuelos = async(id) =>{
     const data = await request(`DELETE FROM vuelos WHERE id = ${id}`)
     return{
         id,
+        origen,
+        destino,
         deleted: data.affectedRows ? true : false,
         status: `Vuelo eliminada`
     }
