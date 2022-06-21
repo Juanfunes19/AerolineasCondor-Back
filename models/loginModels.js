@@ -13,6 +13,7 @@ module.exports.register = async(name, email, password) =>{
         return{
             id: user.insertId,
             email,
+            existUser: true,
             msg: "Usuario creado"
         }
     }
