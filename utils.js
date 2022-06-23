@@ -9,14 +9,14 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
         port: 465,
         secure: true,
         auth:{
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
+            user: 'juan.funes1996@gmail.com',
+            pass: 'mtedltlujzhuvbcp',
         },
 
     })
 
     let mailOptions = {
-        from: "aerolineascondor@gmail.com",
+        from: "juan.funes1996@gmail.com",
         to: mail,
         subject: `Hola soy ${nombre}!`,
         text: mensaje
@@ -32,7 +32,7 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
 
 
 
-    
+
     transporter.verify(function (error, success) {
         if (error) {
         console.log(error);
