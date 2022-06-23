@@ -22,6 +22,7 @@ module.exports.createAdminControllers = async (req, res) =>{
         const admin = await createAdmin({name, email, password})
         return res.send(admin)
     } catch (error) {
+        console.log(error)
         return res.send(`Se produjo un error en la creacion de un nuevo admin`)
     }
 }
