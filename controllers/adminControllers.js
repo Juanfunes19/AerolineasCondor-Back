@@ -14,7 +14,7 @@ module.exports.allAdminControllers = async (req, res ) =>{
 
 
 module.exports.createAdminControllers = async (req, res) =>{
-    const {name, email, password} = req.body
+    let {name, email, password} = req.body
     password = bcrypt.hashSync(password, 10)
     
 
