@@ -18,19 +18,6 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
         }
     })
 
-    // let transporter = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //         type: 'OAuth2',
-    //         user: credentials.MAIL_USERNAME,
-    //         pass: credentials.MAIL_PASSWORD,
-    //         clientId: credentials.OAUTH2_CLIENTID,
-    //         clientSecret: credentials.OAUTH2_CLIENT_SECRET,
-    //         refreshToken: credentials.OAUTH2_REFRESH_TOKEN
-    //     }
-    // });
-
-
     let mailOptions = {
         from: "aerolineascondor@gmail.com",
         to: mail,
