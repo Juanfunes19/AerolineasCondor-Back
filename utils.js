@@ -5,17 +5,14 @@ const nodemailer = require (`nodemailer`)
 module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
-        // host: "smtp.gmail.com", 
-        // port: 587,
-        // secure: false,
+        host: 'smtp.gmail.com', 
+        port: 465,
+        secure: true,
         auth:{
-            type: 'OAuth2',
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
-            clientId: process.env.ID_CLIENT,
-            clientSecret: process.env.ID_SEC,
-            refreshToken: process.env.REFRESH_TOKEN
-        }
+        },
+
     })
 
     let mailOptions = {
@@ -27,9 +24,20 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
 
     transporter.sendMail(mailOptions, function(err, data){
         if(err){
-            res(err)
+            rej(err)
         }else{
             res(true)
         }
     })
+
+
+
+    
+    transporter.verify(function (error, success) {
+        if (error) {
+        console.log(error);
+        } else {
+        console.log("Server is ready to take our messages");
+        }
+    });
 })
