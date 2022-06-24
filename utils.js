@@ -16,8 +16,8 @@ module.exports.enviarEmail = (mail) => new Promise((res, rej) => {
     })
 
     let mailOptions = {
-        from: mail,
-        to: 'aerolineascondor@gmail.com',
+        from: 'aerolineascondor@gmail.com',
+        to: mail,
         subject: `Hola 👋, bienvenido/a a nuestra comunidad! ✈🌍`,
         text: `Te suscribiste a nuestro Newletter semanal.
         Recibiras cientos de ofertas para que hagas ese viaje que necesitas. 
