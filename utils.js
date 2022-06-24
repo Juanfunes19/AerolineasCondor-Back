@@ -9,14 +9,14 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
         port: 465,
         secure: true,
         auth:{
-            user: 'juan.funes1996@gmail.com',
-            pass: 'mtedltlujzhuvbcp',
+            user: 'process.env.EMAIL_USER',
+            pass: 'xzihagtzsantgnux',
         },
 
     })
 
     let mailOptions = {
-        from: "juan.funes1996@gmail.com",
+        from: "aerolineascondor@gmail.com",
         to: mail,
         subject: `Hola soy ${nombre}!`,
         text: mensaje
