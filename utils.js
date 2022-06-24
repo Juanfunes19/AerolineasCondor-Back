@@ -16,10 +16,11 @@ module.exports.enviarEmail = (nombre, mail) => new Promise((res, rej) => {
     })
 
     let mailOptions = {
-        from: 'aerolineascondor@gmail.com',
-        to: mail,
-        subject: `Hola ${nombre}, escapemosno junsto! ✈🌍`,
-        text: "Hola, te suscribiste a nuestro Newletter semanal!!!"
+        from: mail,
+        to: 'aerolineascondor@gmail.com',
+        subject: `Hola ${nombre}, bienvenido a nuestra comunidad! ✈🌍`,
+        text: `Hola ${nombre}, te suscribiste a nuestro Newletter semanal.
+        Recibiras cientos de ofertas para que hagas ese viaje que necesitas. Escapemosno juntos 🏖🏞!`
     }
 
     transporter.sendMail(mailOptions, function(err, data){

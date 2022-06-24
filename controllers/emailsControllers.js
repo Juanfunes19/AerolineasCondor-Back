@@ -1,8 +1,6 @@
 // const { transporter } = require("../config/mailer");
 const { enviarEmail } = require("../utils")
 
-
-
 const emailControllers = async (req, res) => {
     const {nombre, mail} = req.body
 
