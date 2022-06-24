@@ -9,8 +9,8 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
         port: 465,
         secure: true,
         auth:{
-            user: 'process.env.EMAIL_USER',
-            pass: 'xzihagtzsantgnux',
+            user: 'juan.funes1996@gmail.com',
+            pass: 'mtedltlujzhuvbcp',
         },
 
     })
@@ -29,10 +29,7 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
             res(true)
         }
     })
-
-
-
-
+    
     transporter.verify(function (error, success) {
         if (error) {
         console.log(error);
