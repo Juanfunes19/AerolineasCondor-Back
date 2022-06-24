@@ -9,7 +9,7 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
         port: 465,
         secure: true,
         auth:{
-            user: 'juan.funes1996@gmail.com',
+            user: mail,
             pass: 'mtedltlujzhuvbcp',
         },
 
