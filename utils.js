@@ -9,15 +9,15 @@ module.exports.enviarEmail = (nombre, mail, mensaje) => new Promise((res, rej) =
         port: 465,
         secure: true,
         auth:{
-            user: mail,
-            pass: 'mtedltlujzhuvbcp',
+            user: 'aerolineascondor@gmail.com',
+            pass: 'xzihagtzsantgnux',
         },
 
     })
 
     let mailOptions = {
         from: mail,
-        to: "aerolineascondor@gmail.com",
+        to: "juan.funes1996@gmail.com",
         subject: `Hola soy ${nombre}!`,
         text: mensaje
     }
