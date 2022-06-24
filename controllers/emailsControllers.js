@@ -4,10 +4,10 @@ const { enviarEmail } = require("../utils")
 
 
 const emailControllers = async (req, res) => {
-    const {nombre, mail, mensaje} = req.body
+    const {nombre, mail} = req.body
 
     try {
-        const envio = await enviarEmail(nombre, mail, mensaje)
+        const envio = await enviarEmail(nombre, mail)
         return res.send({envio})
     } catch (error) {
         console.log(error)
