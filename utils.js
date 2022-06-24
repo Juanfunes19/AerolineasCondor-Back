@@ -19,7 +19,8 @@ module.exports.enviarEmail = (mail) => new Promise((res, rej) => {
         from: 'aerolineascondor@gmail.com',
         to: mail,
         subject: `Hola 👋, bienvenido/a a nuestra comunidad! ✈🌍`,
-        text: `Te suscribiste a nuestro Newletter semanal.
+        text: `
+        Te suscribiste a nuestro Newletter semanal.
         Recibiras cientos de ofertas para que hagas ese viaje que necesitas. 
         Escapemosno juntos 🏖🏞!`
     }
