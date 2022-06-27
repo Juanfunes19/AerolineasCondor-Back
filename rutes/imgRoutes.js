@@ -7,7 +7,7 @@ const upload = multer({dest: 'skiImg/'});
 
 router.get('/', imgsController)
 router.get('/:key', imgController)
-router.post('/', upload.single('image'), createImgController)
+router.post('/', upload.single('imagen'), createImgController)
 router.delete('/:path', deleteImgController)
 
 module.exports = router
