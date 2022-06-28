@@ -42,7 +42,7 @@ module.exports.deleteVuelos = async(id) =>{
     return{
         id,
         deleted: data.affectedRows ? true : false,
-        status: `Vuelo eliminada`
+        status: `Vuelo eliminado`
     }
 }
 
