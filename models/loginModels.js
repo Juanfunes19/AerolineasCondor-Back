@@ -20,6 +20,7 @@ module.exports.register = async(name, email, password) =>{
 }
 
 
+
 module.exports.login = async(email, password) =>{
     const data = await request(`SELECT * FROM users WHERE email = "${email}"`)
     if(data.length === 0){
@@ -28,16 +29,26 @@ module.exports.login = async(email, password) =>{
             error: true
         }
     } else{
-        if(bcrypt.compareSync(password, data[0].password)){
+        if(data[0].user === "admin" && bcrypt.compareSync(password, data[0].password)){
             return {
                 user: data[0],
                 logged: true,
+                admin: true,
                 msg: "Acesso correcto"
             }
         }else{
+            if(bcrypt.compareSync(password, data[0].password)){
+            return {
+                user: data[0],
+                logged: true,
+                admin: false,
+                msg: "Acesso correcto"
+                }
+        }else{            
             return {
                 msg: "Usuario o contraseña equivocada",
                 error: true
+            }
             }
         }
     }
