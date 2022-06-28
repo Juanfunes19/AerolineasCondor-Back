@@ -29,7 +29,7 @@ module.exports.login = async(email, password) =>{
             error: true
         }
     } else{
-        if(data[0].user.type === "admin" && bcrypt.compareSync(password, data[0].password)){
+        if(data[0].type === "admin" && bcrypt.compareSync(password, data[0].password)){
             return {
                 user: data[0],
                 logged: true,
