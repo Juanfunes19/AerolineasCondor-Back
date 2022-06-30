@@ -10,6 +10,15 @@ module.exports.allVuelosControllers = async (req, res ) =>{
     }
 }
 
+// Obtengo la imagen directamente desde aws
+module.exports.getImagen = async (req, res) =>{
+    const {path} = req.params
+    const readStream = getFileStream(path)
+    readStream.pipe(res)
+}
+
+
+
 module.exports.idVuelosControllers = async (req, res) =>{
     const {id} = req.params
     try {
