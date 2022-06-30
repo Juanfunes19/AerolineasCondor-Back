@@ -49,16 +49,16 @@ module.exports.createVuelosControllers = async (req, res) =>{
 
 
 
-module.exports.createVuelosControllers = async (req, res) =>{
-    const {origen, destino, fecha, descripcion, precio, imagen} = req.body
+// module.exports.createVuelosControllers = async (req, res) =>{
+//     const {origen, destino, fecha, descripcion, precio, imagen} = req.body
 
-    try {
-        const vuelos = await createVuelos({origen, destino, fecha, descripcion, precio, imagen})
-        return res.send(vuelos)
-    } catch (error) {
-        return res.send(`Se produjo un error en la creacion de un nuevo vuelo`)
-    }
-}
+//     try {
+//         const vuelos = await createVuelos({origen, destino, fecha, descripcion, precio, imagen})
+//         return res.send(vuelos)
+//     } catch (error) {
+//         return res.send(`Se produjo un error en la creacion de un nuevo vuelo`)
+//     }
+// }
 
 module.exports.updateVuelosControllers = async (req, res) =>{
     const {id} = req.params
