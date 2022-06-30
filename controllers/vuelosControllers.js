@@ -21,10 +21,10 @@ module.exports.idVuelosControllers = async (req, res) =>{
 
 
 module.exports.createVuelosControllers = async (req, res) =>{
-    const {origen, destino, fecha, descripcion, precio} = req.body
+    const {origen, destino, fecha, descripcion, precio, imagen} = req.body
 
     try {
-        const vuelos = await createVuelos({origen, destino, fecha, descripcion, precio})
+        const vuelos = await createVuelos({origen, destino, fecha, descripcion, precio, imagen})
         return res.send(vuelos)
     } catch (error) {
         return res.send(`Se produjo un error en la creacion de un nuevo vuelo`)
