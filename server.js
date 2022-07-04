@@ -31,7 +31,7 @@ app.use(`/login`, loginRouter)
 app.use(`/email`, mailsRoutes )
 app.use(`/reserva`, reservaRoutes )
 app.use(`/createadmin`, adminRoutes)
-
+ 
 // app.use(`/imagen`,imgRoutes )
 
 app.listen(PORT, () => console.log(`Servidor andando en el puerto ${PORT}`))
