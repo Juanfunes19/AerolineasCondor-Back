@@ -11,7 +11,7 @@ module.exports.registerControlllers = async (req, res) =>{
         const user = await register(name, email, password)
 
         if(user.existUser){
-            res.cookie("session", createToken(user), {maxAge: timeCookie(3)})
+            res.cookie("session", createToken(user), {maxAge: timeCookie(1)})
         }
         return res.status(201).send(user)
     } catch (error) {
